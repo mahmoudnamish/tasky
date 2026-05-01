@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       builder:(context , ThemeMode valueTheme , Widget? child){
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Tasky',
+          title: 'Tasky app',
           theme: lightTheme,
           darkTheme: darkTheme,
           themeMode: valueTheme,

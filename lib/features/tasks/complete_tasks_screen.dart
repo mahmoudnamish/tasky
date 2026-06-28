@@ -2,11 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
+import '../../models/task_model.dart';
+import '../../widgets_shared_component/task_list_widget.dart';
 
-//import 'package:shared_preferences/shared_preferences.dart';
-
-import '../models/task_model.dart';
-import '../widgets/task_list_widget.dart';
 
 class CompleteTasksScreen extends StatefulWidget {
   const CompleteTasksScreen({super.key});

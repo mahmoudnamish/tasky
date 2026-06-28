@@ -16,6 +16,9 @@ class CustomSvgPicture extends StatelessWidget {
     this.width,
     this.height,
   }) : withColorFilter = false;
+
+
+
   final String path;
   final bool withColorFilter;
   double? height;

@@ -1,14 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
 import 'package:tasky/core/widget/custom_svg_picture.dart';
 import 'package:tasky/models/task_model.dart';
-import 'package:tasky/screens/add_task_screen.dart';
-import '../widgets/achieved_tasks_widget.dart';
-import '../widgets/high_priority_tasks_widget.dart';
-import '../widgets/sliver_task_list_widget.dart';
+import 'package:tasky/features/add_task/add_task_screen.dart';
+
+import '../../widgets_shared_component/achieved_tasks_widget.dart';
+import '../../widgets_shared_component/high_priority_tasks_widget.dart';
+import '../../widgets_shared_component/sliver_task_list_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -43,7 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
     totalTask = tasks.length;
 
     ///احنا بنلعب ع الطول في العناصر دي
-    totalDoneTasks = tasks.where((e) => e.isDone).length;
+    totalDoneTasks = tasks
+        .where((e) => e.isDone)
+        .length;
+    //where علشان اطلع حاجه معينه
+    //index  في الليسته الرئيسيه
+    // Map علشان اللف ع عنصر عنصر
     percent = totalTask == 0 ? 0 : totalDoneTasks / totalTask;
   }
 
@@ -164,9 +169,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         GestureDetector(
                           onTap: () {},
                           child: CircleAvatar(
-                            backgroundImage: userImagePath == null ? AssetImage(
-                              'assets/images/WhatsApp Image 2026-03-20 at 3.32.43 PM.jpeg',
-                            ) : FileImage(File(userImagePath!)),
+                            backgroundImage: userImagePath == null
+                                ? AssetImage(
+                                    'assets/images/WhatsApp Image 2026-03-20 at 3.32.43 PM.jpeg',
+                                  )
+                                : FileImage(File(userImagePath!)),
                           ),
                         ),
                         SizedBox(width: 8),

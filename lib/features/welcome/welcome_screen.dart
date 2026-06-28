@@ -7,7 +7,7 @@ import 'package:tasky/core/widget/custom_Elevated_Buttom.dart';
 import 'package:tasky/core/widget/custom_svg_picture.dart';
 import 'package:tasky/core/widget/custom_text_forme_field.dart';
 
-import 'package:tasky/screens/main_screen.dart';
+import 'package:tasky/features/navigation/main_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({super.key});

@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tasky/core/theme/theme_controller.dart';
 import 'package:tasky/core/widget/custom_check_box.dart';
 import 'package:tasky/models/task_model.dart';
-import 'package:tasky/screens/high_priority_tasks_screen.dart';
+import 'package:tasky/features/tasks/high_priority_tasks_screen.dart';
 
 class HighPriorityTasksWidget extends StatelessWidget {
   HighPriorityTasksWidget({
@@ -62,13 +62,20 @@ class HighPriorityTasksWidget extends StatelessWidget {
 
                   ///-------------------------------------------------
                   itemBuilder: (BuildContext context, int index) {
-                    final task = tasks.reversed.take(2).where((e) => e.taskHighPriority).toList()[index]; // يبقا انا جبتله اللسته والاندكس بتاعها بتاع الصفحه دي
+                    final task = tasks.reversed
+                        .take(2)
+                        .where((e) => e.taskHighPriority)
+                        .toList()[index]; // يبقا انا جبتله اللسته والاندكس بتاعها بتاع الصفحه دي
                     return Row(
                       children: [
                         CustomCheckBox(
                           onChanged: (bool? value) {
-                            final index = tasks.indexWhere((element) => element.id == task.id, //سوينا الاندكس الرئيسيه بي الاندكس بتاعت الصفحه دي
+                            final index = tasks.indexWhere(
+                              (element) =>
+                                  element.id ==
+                                  task.id, //سوينا الاندكس الرئيسيه بي الاندكس بتاعت الصفحه دي
                             );
+
                             ///علشان احطها في الاون تاب يا باشا
                             ///ابديت ع الداتا في الشرد برفرنس
                             onTap(value, index);
@@ -122,6 +129,7 @@ class HighPriorityTasksWidget extends StatelessWidget {
                     );
                   },
                 ),
+                ///TODO:spredOperator ...
                 // ...tasks.reversed.take(2).where((e) => e.taskHighPriority).map((
                 //   element,
                 // ) {
@@ -129,7 +137,7 @@ class HighPriorityTasksWidget extends StatelessWidget {
                 //     children: [
                 //       Checkbox(
                 //         activeColor: Color(0xFF15B86C),
-                //         value: element.isDone,
+                //         value: element.isDone,    لفلي وعايز الدن منها
                 //
                 //         ///عايز هنا bool true false
                 //         onChanged: (bool? value) {

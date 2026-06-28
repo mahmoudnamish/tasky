@@ -1,14 +1,12 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tasky/core/theme/theme_controller.dart';
 import 'package:tasky/core/widget/custom_svg_picture.dart';
-import 'package:tasky/screens/user_details_screen.dart';
-import 'package:tasky/screens/welcome_screen.dart';
-import '../core/services/preferences_manager.dart';
+import 'package:tasky/features/profile/user_details_screen.dart';
+import 'package:tasky/features/welcome/welcome_screen.dart';
+import '../../core/services/preferences_manager.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -178,6 +176,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 Divider(thickness: 1),
+                /// TODO: Theme data in App
                 ListTile(
                   contentPadding: EdgeInsets.zero,
                   title: Text(
@@ -195,7 +194,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         value: value == ThemeMode.dark,
                         onChanged: (bool value) {
                           ThemeController.toggleTheme();
-
                           ///TODO:ThemeChange
                           // setState(() {
                           //   isDarkMode = value;
@@ -228,6 +226,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           return WelcomeScreen();
                         },
                       ),
+
                       (Route<dynamic> route) => false,
                     );
                   },

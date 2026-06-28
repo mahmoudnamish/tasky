@@ -1,3 +1,5 @@
+
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PreferencesManager {
@@ -34,7 +36,6 @@ class PreferencesManager {
   bool? getBool(String key) {
     return _preferences.getBool(key);
   }
-
 
   // ───────────────── Int ─────────────────
   int? getInt(String key) => _preferences.getInt(key);

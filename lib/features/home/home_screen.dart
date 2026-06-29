@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:tasky/constants/storage_key.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
 import 'package:tasky/core/widget/custom_svg_picture.dart';
 import 'package:tasky/models/task_model.dart';
@@ -81,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void _getUserName() async {
     // final pref = await SharedPreferences.getInstance();
     setState(() {
-      username = PreferencesManager().getString('username');
+      username = PreferencesManager().getString(StorageKey.username);
       userImagePath = PreferencesManager().getString('user_image');
       // username = pref.getString('username');
     });
@@ -141,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void _motivation() async {
     //final pref = await SharedPreferences.getInstance();
     setState(() {
-      motivation = PreferencesManager().getString('motivation_guote');
+      motivation = PreferencesManager().getString(StorageKey.motivation_guote);
       //motivation = pref.getString('motivation_guote') ;
     });
   }

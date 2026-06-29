@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tasky/constants/storage_key.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
-
-// import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tasky/core/widget/custom_Elevated_Buttom.dart';
 import 'package:tasky/core/widget/custom_svg_picture.dart';
 import 'package:tasky/core/widget/custom_text_forme_field.dart';
@@ -158,7 +156,7 @@ class WelcomeScreen extends StatelessWidget {
                         // final pref = await SharedPreferences.getInstance();
                         //  await pref.setString('username', control.value.text);
                         await PreferencesManager().setString(
-                          'username',
+                          StorageKey.username,
                           control.value.text,
                         );
 

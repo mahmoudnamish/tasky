@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/constants/storage_key.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
 
 // import 'package:shared_preferences/shared_preferences.dart';
@@ -73,11 +74,11 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                     // await pref.setString('username', userNameController.value.text,);
                     // await pref.setString('motivation_guote', motivationQuoteController.value.text,);
                     await PreferencesManager().setString(
-                      'username',
+                      StorageKey.username,
                       userNameController.value.text,
                     );
                     await PreferencesManager().setString(
-                      'motivation_guote',
+                      StorageKey.motivation_guote,
                       motivationQuoteController.value.text,
                     );
                     Navigator.of(context).pop(true);

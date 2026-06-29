@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:tasky/constants/storage_key.dart';
 import 'package:tasky/core/theme/theme_controller.dart';
 import 'package:tasky/core/widget/custom_svg_picture.dart';
 import 'package:tasky/features/profile/user_details_screen.dart';
@@ -32,8 +33,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   void _loadData() async {
     setState(() {
-      username = PreferencesManager().getString('username') ?? '';
-      motivation = PreferencesManager().getString('motivation_guote') ?? "One task at a time. One step closer.";
+      username = PreferencesManager().getString(StorageKey.username) ?? '';
+      motivation =
+          PreferencesManager().getString(StorageKey.motivation_guote) ??
+          "One task at a time. One step closer.";
       userImagePath = PreferencesManager().getString('user_image');
       // isDarkMode = PreferencesManager().getBool('theme') ?? true;
       isLoading = false;
@@ -115,6 +118,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   });
                                 },
                               );
+
                               ///TODO:Image Piker
                               // XFile? image = await ImagePicker().pickImage(
                               //   source: ImageSource.gallery,
@@ -176,6 +180,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 Divider(thickness: 1),
+
                 /// TODO: Theme data in App
                 ListTile(
                   contentPadding: EdgeInsets.zero,
@@ -194,6 +199,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         value: value == ThemeMode.dark,
                         onChanged: (bool value) {
                           ThemeController.toggleTheme();
+
                           ///TODO:ThemeChange
                           // setState(() {
                           //   isDarkMode = value;
@@ -213,8 +219,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ListTile(
                   onTap: () async {
                     // final pref = await SharedPreferences.getInstance();
-                    await PreferencesManager().remove("username");
-                    await PreferencesManager().remove("motivation_guote");
+                    await PreferencesManager().remove(StorageKey.username);
+                    await PreferencesManager().remove(
+                      StorageKey.motivation_guote,
+                    );
                     await PreferencesManager().remove("tasks");
                     // pref.remove("username");
                     // pref.remove("motivation_guote");
